@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import colors from 'colors';
 import path from 'node:path';
 import prompts from 'prompts';
 import fs from 'node:fs/promises';
@@ -8,20 +9,26 @@ import i18n from './i18n.js';
 
 (async () => {
 
-  console.log(config.hr);
-  console.log(`## picture-renamer v${config.package.version}`);
-  console.log(config.hr);
+  console.log(config.hr.cyan);
+  console.log(`## picture-renamer v${config.package.version}`.cyan);
+  console.log(config.hr.cyan);
 
   if (config.isDevMode) {
-    console.log(i18n(`development-mode-is-enabled`));
+    console.log(config.hr2);
+    console.log(i18n(`development-mode-is-enabled`).yellow);
+    console.log(config.hr2);
   }
+
+  console.log(i18n(`selected-picture-directory`).bold);
+  console.log(config.pictureDir.green);
+  console.log(config.hr2);
 
   // ask for suffix
   let suffix = (await prompts({
     type: 'text',
     name: 'value',
     message: i18n(`suffix-question`),
-    validate: value => value.length > 20 ? `Error: A maximum of 20 characters are allowed!` : true
+    validate: value => value.length > 20 ? i18n(`suffix-error`) : true
   })).value;
   if (suffix) {
     suffix = `_${suffix}`;

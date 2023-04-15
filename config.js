@@ -63,7 +63,7 @@ for (let i = 0; i < process.argv.length; i++) {
 }
 
 config.hr = `####################################################################`;
-
+config.hr2 = `--------------------------------------------------------------------`;
 config.package = JSON.parse(fs.readFileSync(path.resolve(config.rootDir,`package.json`),{encoding: `utf8`}));
 
 // -------------------------------------------------------------------------------------------------------------------
@@ -98,7 +98,5 @@ if (config.isDevMode) {
     fs.copyFileSync(path.resolve(config.examplesDir, file), path.resolve(config.examplesDevDir, file));
   }
 }
-
-console.log(config);
 
 export default config;
