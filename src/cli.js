@@ -28,7 +28,7 @@ function determineDir() {
 }
 
 const dir = determineDir();
-console.log(`Rename all pictures of ${dir}`);
+console.log(`Rename all pictures of ${dir}`, process.argv);
 
 
 setTimeout(() => {
