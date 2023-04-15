@@ -10,6 +10,7 @@
 ## Linux Mint
 sudo -i
 npm i git+https://github.com/brokfeld/picture-renamer.git#main -g
+exit
 wget https://raw.githubusercontent.com/brokfeld/picture-renamer/main/src/context_menu/picture_renamer.nemo_action -o ~/.local/share/nemo/actions/picture_renamer.nemo_action
 ```
 
