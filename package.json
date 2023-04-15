@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/brokfeld/picture-renamer/issues"
   },
-  "homepage": "https://github.com/brokfeld/picture-renamer#readme"
+  "homepage": "https://github.com/brokfeld/picture-renamer#readme",
+  "dependencies": {
+    "prompts": "^2.4.2"
+  }
 }
