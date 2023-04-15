@@ -3,49 +3,24 @@
 import path from 'node:path';
 import prompts from 'prompts';
 import fs from 'node:fs/promises';
-
-/**
- * Determines the directory path
- * @returns {string}
- */
-async function determineDir() {
-  let dir = process.cwd();
-  for (let i = 0; i < process.argv.length; i++) {
-    const arg = process.argv[i];
-    if (arg === `--dir`) {
-      const dirArg = process.argv[i + 1];
-      if (dirArg) {
-        const item = path.resolve(dirArg);
-        const itemParsed = path.parse(item);
-
-        // TODO: checks isDir, isFile with node:fs
-        if (itemParsed.ext) {
-          dir = itemParsed.dir;
-        } else {
-          dir = item;
-        }
-        
-        break;
-      }
-    }
-  }
-  return dir;
-}
-
-
+import config from '../config.js';
+import i18n from './i18n.js';
 
 (async () => {
 
-  const dir = await determineDir();
+  console.log(config.hr);
+  console.log(`## picture-renamer v${config.package.version}`);
+  console.log(config.hr);
 
-console.log(dir);
-
+  if (config.isDevMode) {
+    console.log(i18n(`development-mode-is-enabled`));
+  }
 
   // ask for suffix
   let suffix = (await prompts({
     type: 'text',
     name: 'value',
-    message: 'Suffix?',
+    message: i18n(`suffix-question`),
     validate: value => value.length > 20 ? `Error: A maximum of 20 characters are allowed!` : true
   })).value;
   if (suffix) {
@@ -53,7 +28,7 @@ console.log(dir);
   }
 
   // items of directory
-  const items = await fs.readdir(dir, { withFileTypes: true });
+  const items = await fs.readdir(config.pictureDir, { withFileTypes: true });
 
   const files = [];
 
@@ -68,30 +43,30 @@ console.log(dir);
         const file = {};
 
         file.srcName = item.name;
-        file.src = path.resolve(dir, item.name);
+        file.src = path.resolve(config.pictureDir, item.name);
 
-//        const exifDate = (await ExifReader.load(file.src, { expanded: true })).exif.DateTime.value[0].replace(` `, `:`).split(`:`);
-//        file.date = {};
-//        file.date.YYYY = exifDate[0];
-//        file.date.MM = exifDate[1];
-//        file.date.DD = exifDate[2];
-//        file.date.hh = exifDate[3];
-//        file.date.mm = exifDate[4];
-//        file.date.ss = exifDate[5];
-//        file.date.full = `${file.date.YYYY}${file.date.MM}${file.date.DD}_${file.date.hh}${file.date.mm}${file.date.ss}`;
-//
-//        if (sameDate[file.date.full]) {
-//          sameDate[file.date.full]++;
-//        } else {
-//          sameDate[file.date.full] = 0;
-//        }
-//
-//        file.date.counter = sameDate[file.date.full];
-//
-//
-//        file.destName = `${file.date.full}_${file.date.counter}${suffix}.jpg`;
-//
-//        file.dest = path.resolve(dir, file.destName);
+        //        const exifDate = (await ExifReader.load(file.src, { expanded: true })).exif.DateTime.value[0].replace(` `, `:`).split(`:`);
+        //        file.date = {};
+        //        file.date.YYYY = exifDate[0];
+        //        file.date.MM = exifDate[1];
+        //        file.date.DD = exifDate[2];
+        //        file.date.hh = exifDate[3];
+        //        file.date.mm = exifDate[4];
+        //        file.date.ss = exifDate[5];
+        //        file.date.full = `${file.date.YYYY}${file.date.MM}${file.date.DD}_${file.date.hh}${file.date.mm}${file.date.ss}`;
+        //
+        //        if (sameDate[file.date.full]) {
+        //          sameDate[file.date.full]++;
+        //        } else {
+        //          sameDate[file.date.full] = 0;
+        //        }
+        //
+        //        file.date.counter = sameDate[file.date.full];
+        //
+        //
+        //        file.destName = `${file.date.full}_${file.date.counter}${suffix}.jpg`;
+        //
+        //        file.dest = path.resolve(dir, file.destName);
 
         files.push(file);
       }

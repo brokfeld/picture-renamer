@@ -40,10 +40,24 @@ rm ~/.local/share/nemo/actions/picture_renamer.nemo_action
 ## Development
 
 ```bash
+## Clone git repository
 git clone https://github.com/brokfeld/picture-renamer.git
 cd picture-renamer
+
+## Install dependencies
 npm i
-npm run cli
+
+## Starts program in development mode
+# a) Picture path is ./examples-dev
+npm run dev
+# b) Custom picture directory
+npm run dev -- --dir "./custom-picture-dir"
+
+## Starts program in production mode
+# a) Picture path is . (cwd)
+npm start
+# b) Custom picture directory
+npm start -- --dir "./custom-picture-dir"
 ```
 
 ## Changelog
