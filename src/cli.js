@@ -15,11 +15,14 @@ function determineDir() {
       if (dirArg) {
         const item = path.resolve(dirArg);
         const itemParsed = path.parse(item);
+
+        // TODO: checks isDir, isFile with node:fs
         if (itemParsed.ext) {
           dir = itemParsed.dir;
         } else {
           dir = item;
         }
+        
         break;
       }
     }
