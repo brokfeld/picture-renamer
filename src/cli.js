@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-console.log(`hello world`);
+console.log(`hello world`, process.argv);
+
+
 
 setTimeout(() => {
   console.log(`end`);

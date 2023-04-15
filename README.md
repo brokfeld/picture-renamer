@@ -7,13 +7,11 @@
   * Installation of [Git](https://git-scm.com/)
 
 ```bash
-## Install main
+## Linux Mint
+sudo -i
 npm i git+https://github.com/brokfeld/picture-renamer.git#main -g
-
-## Install tag
+# or
 npm i git+https://github.com/brokfeld/picture-renamer.git#v1.0.0 -g
-
-## Ubuntu
 # /bin/picture-renamer
 ```
 
