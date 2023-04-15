@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-import colors from 'colors';
+import 'colors';
 import path from 'node:path';
 import prompts from 'prompts';
 import fs from 'node:fs/promises';
 import config from '../config.js';
 import i18n from './i18n.js';
+import getCaptureDate from './getCaptureDate.js';
 
 (async () => {
 
@@ -51,29 +52,20 @@ import i18n from './i18n.js';
 
         file.srcName = item.name;
         file.src = path.resolve(config.pictureDir, item.name);
+        file.date = await getCaptureDate(file.src);
 
-        //        const exifDate = (await ExifReader.load(file.src, { expanded: true })).exif.DateTime.value[0].replace(` `, `:`).split(`:`);
-        //        file.date = {};
-        //        file.date.YYYY = exifDate[0];
-        //        file.date.MM = exifDate[1];
-        //        file.date.DD = exifDate[2];
-        //        file.date.hh = exifDate[3];
-        //        file.date.mm = exifDate[4];
-        //        file.date.ss = exifDate[5];
-        //        file.date.full = `${file.date.YYYY}${file.date.MM}${file.date.DD}_${file.date.hh}${file.date.mm}${file.date.ss}`;
-        //
-        //        if (sameDate[file.date.full]) {
-        //          sameDate[file.date.full]++;
-        //        } else {
-        //          sameDate[file.date.full] = 0;
-        //        }
-        //
-        //        file.date.counter = sameDate[file.date.full];
-        //
-        //
-        //        file.destName = `${file.date.full}_${file.date.counter}${suffix}.jpg`;
-        //
-        //        file.dest = path.resolve(dir, file.destName);
+
+        if (sameDate[file.date] >= 0) {
+          sameDate[file.date]++;
+        } else {
+          sameDate[file.date] = 0;
+        }
+
+        file.dateCounter = sameDate[file.date];
+
+        file.destName = `${file.date}_${file.dateCounter}${suffix}.jpg`;
+
+        file.dest = path.resolve(config.pictureDir, file.destName);
 
         files.push(file);
       }
