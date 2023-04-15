@@ -4,7 +4,6 @@
 
 ## Install
 # cp src/context_menu/picture_renamer.nemo_action ~/.local/share/nemo/actions/picture_renamer.nemo_action
-# wget https://raw.githubusercontent.com/brokfeld/picture-renamer/main/src/context_menu/picture_renamer.nemo_action -o ~/.local/share/nemo/actions/picture_renamer.nemo_action
 
 [Nemo Action]
 Name=Rename pictures
