@@ -1,0 +1,22 @@
+{
+  "name": "@brokfeld/picture-renamer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "picture-renamer": "src/cli.js"
+  },
+  "scripts": {
+    "cli": "node src/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brokfeld/picture-renamer.git"
+  },
+  "author": "Jens Brokfeld <geofreak.de@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brokfeld/picture-renamer/issues"
+  },
+  "homepage": "https://github.com/brokfeld/picture-renamer#readme"
+}

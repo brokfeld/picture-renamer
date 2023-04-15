@@ -1,0 +1,18 @@
+# https://github.com/linuxmint/nemo/blob/master/files/usr/share/nemo/actions/sample.nemo_action
+
+# ~/.local/share/icons/
+
+## Install
+# cp src/context_menu/picture_renamer.nemo_action ~/.local/share/nemo/actions/picture_renamer.nemo_action
+
+[Nemo Action]
+Name=Rename pictures
+Comment=Renames all pictures of a directory
+Name[de]=Fotos umbenennen
+Comment[de]=Benennt alle Fotos aus einem Ordner um
+Exec=/bin/bash
+Icon-Name=folder-pictures
+Selection=s
+Extensions=jpg
+Quote=double
+Terminal=true
