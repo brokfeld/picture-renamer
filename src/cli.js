@@ -16,11 +16,11 @@ import getCaptureDate from './getCaptureDate.js';
 
   if (config.isDevMode) {
     console.log(config.hr2);
-    console.log(i18n(`development-mode-is-enabled`).yellow);
+    console.log(i18n(`development-mode-is-enabled`).bold.yellow);
     console.log(config.hr2);
   }
 
-  console.log(i18n(`selected-picture-directory`).bold);
+  console.log(i18n(`selected-picture-directory`).bold.yellow);
   console.log(config.pictureDir.green);
   console.log(config.hr2);
 
@@ -28,12 +28,14 @@ import getCaptureDate from './getCaptureDate.js';
   let suffix = (await prompts({
     type: 'text',
     name: 'value',
-    message: i18n(`suffix-question`),
+    message: i18n(`suffix-question`).yellow,
     validate: value => value.length > 20 ? i18n(`suffix-error`) : true
   })).value;
   if (suffix) {
     suffix = `_${suffix}`;
   }
+
+  console.log(config.hr2);
 
   // items of directory
   const items = await fs.readdir(config.pictureDir, { withFileTypes: true });
@@ -41,6 +43,7 @@ import getCaptureDate from './getCaptureDate.js';
   const files = [];
 
   const sameDate = {};
+  let maxSrcLength = 5;
 
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
@@ -51,6 +54,11 @@ import getCaptureDate from './getCaptureDate.js';
         const file = {};
 
         file.srcName = item.name;
+
+        if (file.srcName.length > maxSrcLength) {
+          maxSrcLength = file.srcName.length;
+        }
+
         file.src = path.resolve(config.pictureDir, item.name);
         file.date = await getCaptureDate(file.src);
 
@@ -72,5 +80,30 @@ import getCaptureDate from './getCaptureDate.js';
     }
   }
 
-  console.log(files)
+  console.log(i18n(`preview`).bold.yellow);
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    console.log(`${file.srcName.padEnd(maxSrcLength, ` `).cyan} → ${file.destName.green}`);
+  }
+  console.log(config.hr2);
+
+  let ok = (await prompts({
+    type: `toggle`,
+    name: `value`,
+    message: i18n(`start-renaming-question`).yellow,
+    initial: false,
+    active: i18n(`yes`),
+    inactive: i18n(`no`)
+  })).value;
+
+  console.log(config.hr2);
+
+  if(ok){
+    for (let j = 0; j < files.length; j++) {
+      const file = files[j];
+      console.log(`${file.srcName.padEnd(maxSrcLength, ` `).magenta} → ${file.destName.green}`);
+      await fs.rename(file.src, file.dest);
+    }
+  }
+ 
 })();

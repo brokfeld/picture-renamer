@@ -8,8 +8,8 @@ lang[`development-mode-is-enabled`] = {
 };
 
 lang[`selected-picture-directory`] = {
-  'default': `Selected picture directory:`,
-  'de-DE': `Gewähltes Fotoverzeichnis:`
+  'default': `Selected picture directory`,
+  'de-DE': `Gewähltes Fotoverzeichnis`
 };
 
 lang[`suffix-question`] = {
@@ -20,6 +20,26 @@ lang[`suffix-question`] = {
 lang[`suffix-error`] = {
   'default': `Error: A maximum of 20 characters are allowed!`,
   'de-DE': `Fehler: Es sind maximal 20 Zeichen erlaubt!`
+};
+
+lang[`preview`] = {
+  'default': `Preview`,
+  'de-DE': `Vorschau`
+};
+
+lang[`start-renaming-question`] = {
+  'default': `Start renaming?`,
+  'de-DE': `Starte das Umbenennen?`
+};
+
+lang[`yes`] = {
+  'default': `Yes`,
+  'de-DE': `Ja`
+};
+
+lang[`no`] = {
+  'default': `No`,
+  'de-DE': `Nein`
 };
 
 /**
