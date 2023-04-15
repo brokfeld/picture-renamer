@@ -7,11 +7,14 @@
   * Installation of [Git](https://git-scm.com/)
 
 ```bash
-## Install master
-npm i git+https://github.com/brokfeld/picture-renamer.git#master -g
+## Install main
+npm i git+https://github.com/brokfeld/picture-renamer.git#main -g
 
 ## Install tag
 npm i git+https://github.com/brokfeld/picture-renamer.git#v1.0.0 -g
+
+## Ubuntu
+# /bin/picture-renamer
 ```
 
 ## Development
