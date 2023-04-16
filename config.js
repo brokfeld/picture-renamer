@@ -51,10 +51,10 @@ for (let i = 0; i < process.argv.length; i++) {
       const item = path.resolve(dirArg);
       const stats = fs.statSync(item);
       if (stats.isDirectory()) {
-        dir = item;
+        config.pictureDir = item;
       } else {
         if (stats.isFile()) {
-          dir = path.parse(item).dir;
+          config.pictureDir = path.parse(item).dir;
         }
       }
       break;
