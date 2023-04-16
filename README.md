@@ -1,4 +1,4 @@
-# picture-renamer
+# Picture Renamer
 
 ## Install
 
@@ -15,14 +15,12 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
 source ~/.profile
-```
 
-```bash
-## 02 Install picture-renamer
+## 02 Install Picture Renamer
 npm i git+https://github.com/brokfeld/picture-renamer.git#main -g
 
-## 03 Install context menu extension
-cp ~/.npm-global/lib/node_modules/@brokfeld/picture-renamer/src/context_menu/picture_renamer.nemo_action ~/.local/share/nemo/actions/picture_renamer.nemo_action
+## 03 Install context menu entry
+picture-renamer install-context-menu
 ```
 
 ## Uninstall
@@ -30,11 +28,11 @@ cp ~/.npm-global/lib/node_modules/@brokfeld/picture-renamer/src/context_menu/pic
 ### Linux Mint
 
 ```bash
-## 01 Remove picture renamer
-npm remove @brokfeld/picture-renamer -g
+## 01 Remove context menu entry
+picture-renamer remove-context-menu
 
-## 02 Remove context menu extension
-rm ~/.local/share/nemo/actions/picture_renamer.nemo_action
+## 02 Remove Picture Renamer
+npm remove @brokfeld/picture-renamer -g
 ```
 
 ## Development
@@ -48,15 +46,15 @@ cd picture-renamer
 npm i
 
 ## Starts program in development mode
-# a) Picture path is ./examples-dev
+# a) Picture directory is ./examples-dev
 npm run dev
-# b) Custom picture directory
+# b) Use a custom picture directory
 npm run dev -- --dir "./custom-picture-dir"
 
 ## Starts program in production mode
-# a) Picture path is . (cwd)
+# a) Picture directory is . (cwd)
 npm start
-# b) Custom picture directory
+# b) Use a custom picture directory
 npm start -- --dir "./custom-picture-dir"
 ```
 
@@ -64,6 +62,7 @@ npm start -- --dir "./custom-picture-dir"
 
 ### v1.0.0
 
+* Installer for a context menu entry (16.04.2023)
 * Rename all `.jpg` / `.jpeg` files of a directory to `YYYYMMDD_hhmmss_n_suffix.jpg` (15.04.2023)
 
 ## License

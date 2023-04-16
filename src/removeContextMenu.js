@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import exists from './exists.js';
 
-(async () => {
+export default async function removeContextMenu() {
   const platform = os.platform();
 
   if (platform === `linux`) {
@@ -24,5 +24,4 @@ import exists from './exists.js';
     }
   }
 
-})();
-
+}

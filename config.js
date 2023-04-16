@@ -17,6 +17,24 @@ for (let i = 0; i < process.argv.length; i++) {
   }
 }
 
+config.installContextMenu = false;
+for (let i = 0; i < process.argv.length; i++) {
+  const arg = process.argv[i];
+  if (arg === `install-context-menu`) {
+    config.installContextMenu = true;
+    break;
+  }
+}
+
+config.removeContextMenu = false;
+for (let i = 0; i < process.argv.length; i++) {
+  const arg = process.argv[i];
+  if (arg === `remove-context-menu`) {
+    config.removeContextMenu = true;
+    break;
+  }
+}
+
 config.locale = Intl.DateTimeFormat().resolvedOptions().locale;
 
 /**
