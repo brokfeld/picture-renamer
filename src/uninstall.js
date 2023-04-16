@@ -1,4 +1,28 @@
-#!/usr/bin/env node
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import exists from './exists.js';
 
+(async () => {
+  const platform = os.platform();
 
-console.log(`uninstall`)
+  if (platform === `linux`) {
+    // Linux
+    if (process.env.USER) {
+
+      // Remove nemo action file
+      const nemoActionFile = path.resolve(`/home/${process.env.USER}/.local/share/nemo/actions/picture_renamer.nemo_action`);
+      if (await exists(nemoActionFile)) {
+        await fs.rm(nemoActionFile);
+      }
+
+    }
+  } else {
+    if (platform === `win32`) {
+      // Windows
+
+    }
+  }
+
+})();
+

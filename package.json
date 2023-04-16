@@ -10,8 +10,8 @@
   "scripts": {
     "start": "node src/cli.js",
     "dev": "node src/cli.js --dev",
-    "postinstall": "src/postinstall.js",
-    "uninstall": "src/uninstall.js"
+    "postinstall": "node src/postinstall.js",
+    "uninstall": "node src/uninstall.js"
   },
   "repository": {
     "type": "git",

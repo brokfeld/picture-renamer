@@ -1,19 +1,7 @@
-#!/usr/bin/env node
-
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-
-async function exists(fileOrDir) {
-  try {
-    await fs.access(fileOrDir);
-    return true;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
-
-}
+import exists from './exists.js';
 
 (async () => {
   const platform = os.platform();
@@ -21,7 +9,7 @@ async function exists(fileOrDir) {
   if (platform === `linux`) {
     // Linux
 
-    // file manager nemo is installed
+    // create nemo action file
     if (await exists(`/bin/nemo`)) {
       if (process.env.USER) {
         const nemoActionsDir = path.resolve(`/home/${process.env.USER}/.local/share/nemo/actions`);
