@@ -62,6 +62,7 @@ npm start -- --dir "./custom-picture-dir"
 
 ### v1.0.0
 
+* Capture date detection from filename, if exif not available (17.04.2023)
 * Installer for a context menu entry (16.04.2023)
 * Rename all `.jpg` / `.jpeg` files of a directory to `YYYYMMDD_hhmmss_n_suffix.jpg` (15.04.2023)
 
