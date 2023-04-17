@@ -23,7 +23,7 @@ export default async function getCaptureDate(file) {
   } else {
     // read capture date from filename
     const parsed = path.parse(file);
-    const match = parsed.base.match(/^[0-9]{8}[\_][0-9]{6}/);
+    const match = parsed.base.match(/[0-9]{8}[\_][0-9]{6}/);
     if (match) {
       full = match[0];
     }
