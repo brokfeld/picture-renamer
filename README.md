@@ -45,26 +45,43 @@ cd picture-renamer
 ## Install dependencies
 npm i
 
+#----------------------------------------------------------
+
 ## Starts program in development mode
 # a) Picture directory is ./examples-dev
 npm run dev
 # b) Use a custom picture directory
 npm run dev -- --dir "./custom-picture-dir"
 
+## Install context menu entry in development mode
+npm run dev -- install-context-menu
+
+## Remove context menu entry in development mode
+npm run dev -- remove-context-menu
+
+#----------------------------------------------------------
+
 ## Starts program in production mode
 # a) Picture directory is . (cwd)
 npm start
 # b) Use a custom picture directory
 npm start -- --dir "./custom-picture-dir"
+
+## Install context menu entry in production mode
+npm start -- install-context-menu
+
+## Remove context menu entry in production mode
+npm start -- remove-context-menu
 ```
 
 ## Changelog
 
 ### v1.0.0
 
+* Installer/Uninstaller for a context menu entry on Windows (20.04.2023)
 * Capture date detection from filename, if exif not available (17.04.2023)
-* Installer for a context menu entry (16.04.2023)
-* Rename all `.jpg` / `.jpeg` files of a directory to `YYYYMMDD_hhmmss_n_suffix.jpg` (15.04.2023)
+* Installer/Uninstaller for a context menu entry on Linux Mint (16.04.2023)
+* Renaming all `.jpg` / `.jpeg` files of a directory to `YYYYMMDD_hhmmss_n_suffix.jpg` (15.04.2023)
 
 ## License
 
