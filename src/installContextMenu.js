@@ -45,7 +45,7 @@ Terminal=true
     if (platform === `win32`) {
       // Windows
       await exec(`REG ADD HKEY_CURRENT_USER\\Software\\Classes\\directory\\Background\\shell\\picture-renamer /d "${i18n('windows-context-menu-rename-pictures')}" /f`);
-      await exec(`REG ADD HKEY_CURRENT_USER\\Software\\Classes\\directory\\Background\\shell\\picture-renamer\\command /d "\"C:\\Users\\%USERNAME%\\AppData\\Roaming\\npm\\picture-renamer.cmd\" --dir \"%%%V\"" /f`);
+      await exec(`REG ADD HKEY_CURRENT_USER\\Software\\Classes\\directory\\Background\\shell\\picture-renamer\\command /d "\"C:\\Users\\%USERNAME%\\AppData\\Roaming\\npm\\picture-renamer.cmd\" --dir \"%V\"" /f`);
     }
   }
   
