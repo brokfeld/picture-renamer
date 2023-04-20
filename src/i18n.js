@@ -42,6 +42,11 @@ lang[`no`] = {
   'de-DE': `Nein`
 };
 
+lang[`windows-context-menu-rename-pictures`] = {
+  'default': `Rename pictures`,
+  'de-DE': `Fotos umbenennen`
+};
+
 /**
  * 
  * @param {string} id 

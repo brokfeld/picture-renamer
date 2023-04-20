@@ -2,7 +2,10 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import exists from './exists.js';
+import child_process from 'node:child_process';
+import util from 'node:util';
 
+const exec = util.promisify(child_process.exec);
 export default async function removeContextMenu() {
   const platform = os.platform();
 
@@ -20,7 +23,7 @@ export default async function removeContextMenu() {
   } else {
     if (platform === `win32`) {
       // Windows
-
+      await exec(`REG DELETE HKEY_CURRENT_USER\\Software\\Classes\\directory\\Background\\shell\\picture-renamer /f`);
     }
   }
 

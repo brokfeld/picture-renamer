@@ -6,29 +6,29 @@
   * Installation of [Node.js/npm](https://nodejs.org/)
   * Installation of [Git](https://git-scm.com/)
 
-### Linux Mint
+### Windows / Linux Mint
 
 ```bash
-## 01 Resolving EACCES permissions errors when installing packages globally
+## 00 Resolving EACCES permissions errors when installing packages globally (only on Linux Mint)
 # https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
 source ~/.profile
+```
 
-## 02 Install Picture Renamer
+```bash
+## 01 Install Picture Renamer
 npm i git+https://github.com/brokfeld/picture-renamer.git#main -g
 
-## 03 Install context menu entry
+## 02 Install context menu entry (only Windows and Linux Mint)
 picture-renamer install-context-menu
 ```
 
 ## Uninstall
 
-### Linux Mint
-
 ```bash
-## 01 Remove context menu entry
+## 01 Remove context menu entry (only Windows and Linux Mint)
 picture-renamer remove-context-menu
 
 ## 02 Remove Picture Renamer

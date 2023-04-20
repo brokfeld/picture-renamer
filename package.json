@@ -9,9 +9,7 @@
   },
   "scripts": {
     "start": "node src/cli.js",
-    "dev": "node src/cli.js --dev",
-    "postinstall2": "node src/install.js",
-    "uninstall2": "node src/uninstall.js"
+    "dev": "node src/cli.js --dev"
   },
   "repository": {
     "type": "git",
