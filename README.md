@@ -6,8 +6,6 @@
   * Installation of [Node.js/npm](https://nodejs.org/)
   * Installation of [Git](https://git-scm.com/)
 
-### Windows / Linux Mint
-
 ```bash
 ## 00 Resolving EACCES permissions errors when installing packages globally (only on Linux Mint)
 # https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
