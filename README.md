@@ -78,10 +78,10 @@ npm start -- remove-context-menu
 
 ### v1.0.0
 
-* Installer/Uninstaller for a context menu entry on Windows (20.04.2023)
-* Capture date detection from filename, if exif not available (17.04.2023)
-* Installer/Uninstaller for a context menu entry on Linux Mint (16.04.2023)
-* Renaming all `.jpg` / `.jpeg` files of a directory to `YYYYMMDD_hhmmss_n_suffix.jpg` (15.04.2023)
+* Installer/Uninstaller for a context menu entry on Windows (2023-04-20)
+* Capture date detection from filename, if exif not available (2023-04-17)
+* Installer/Uninstaller for a context menu entry on Linux Mint (2023-04-16)
+* Renaming all `.jpg` / `.jpeg` files of a directory to `YYYYMMDD_hhmmss_n_suffix.jpg` (2023-04-15)
 
 ## License
 
