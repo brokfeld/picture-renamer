@@ -85,11 +85,17 @@ import removeContextMenu from './removeContextMenu.js';
 
         if (item.isFile()) {
           const nameLow = item.name.toLowerCase();
-          if (nameLow.endsWith(`.jpg`) || nameLow.endsWith(`.jpeg`)) {
+          if (nameLow.endsWith(`.jpg`) || nameLow.endsWith(`.jpeg`) || nameLow.endsWith(`.mp4`)) {
             const file = {};
 
-            file.srcName = item.name;
+            // target file extension
+            let ext = `jpg`;
+            if(item.name.toLowerCase().endsWith(`.mp4`)){
+              ext = `mp4`;
+            }
 
+            file.srcName = item.name;
+        
             if (file.srcName.length > maxSrcLength) {
               maxSrcLength = file.srcName.length;
             }
@@ -105,7 +111,7 @@ import removeContextMenu from './removeContextMenu.js';
 
             file.dateCounter = sameDate[file.date];
 
-            file.destName = `${file.date}_${file.dateCounter}${suffix}.jpg`;
+            file.destName = `${file.date}_${file.dateCounter}${suffix}.${ext}`;
 
             file.dest = path.resolve(config.pictureDir, file.destName);
 

@@ -11,12 +11,19 @@ import exif from 'jpeg-exif';
  * @returns 
  */
 export default async function getCaptureDate(file, options) {
-  const buffer = await fs.readFile(file, { encoding: null });
-  const data = exif.fromBuffer(buffer);
+
+  const fileLow = file.toLocaleLowerCase();
+
+  let data
+  // jpg and jpeg
+  if(fileLow.endsWith(`g`)){
+    const buffer = await fs.readFile(file, { encoding: null });
+    data = exif.fromBuffer(buffer);
+  }
 
   let full = null;
   // read capture date from exif
-  if (data.SubExif && data.SubExif.DateTimeOriginal) {
+  if (data && data.SubExif && data.SubExif.DateTimeOriginal) {
     const captureDateRaw = data.SubExif.DateTimeOriginal;
     const captureDateValues = captureDateRaw.replace(` `, `:`).split(`:`);
 
@@ -36,7 +43,6 @@ export default async function getCaptureDate(file, options) {
       full = match[0];
     }
   }
-
 
   // add or remove hours and minutes
   const fullString = `${full.substring(0, 4)}-${full.substring(4, 6)}-${full.substring(6, 8)}T${full.substring(9, 11)}:${full.substring(11, 13)}:${full.substring(13, 15)}`;

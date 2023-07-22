@@ -32,7 +32,7 @@ Comment[de]=Benennt alle Fotos aus einem Ordner um
 Exec=/home/${process.env.USER}/.npm-global/bin/picture-renamer --dir %F
 Icon-Name=folder-pictures
 Selection=any
-Extensions=jpg;jpeg;dir;
+Extensions=mp4;jpg;jpeg;dir;
 Quote=double
 Terminal=true
 `;
