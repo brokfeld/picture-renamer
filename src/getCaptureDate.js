@@ -6,7 +6,8 @@ import exif from 'jpeg-exif';
  * 
  * @param {string} file 
  * @param {object} options 
- * @param {number} options.addHours Add or remove hours (values from -24 to 24)
+ * @param {number} options.addHours Add or subtract hours 
+ * @param {number} options.addMinutes Add or subtract minutes 
  * @returns 
  */
 export default async function getCaptureDate(file, options) {
@@ -37,13 +38,12 @@ export default async function getCaptureDate(file, options) {
   }
 
 
-  // add or remove hours
-  if (options && options.addHours && !Number.isNaN(options.addHours)) {
-    const fullString = `${full.substring(0, 4)}-${full.substring(4, 6)}-${full.substring(6, 8)}T${full.substring(9, 11)}:${full.substring(11, 13)}:${full.substring(13, 15)}`;
-    const d = new Date(fullString);
-    d.setHours(d.getHours() + options.addHours);
-    full = `${d.getFullYear()}${(d.getMonth() + 1).toString().padStart(2, '0')}${(d.getDate()).toString().padStart(2, '0')}_${(d.getHours()).toString().padStart(2, '0')}${(d.getMinutes()).toString().padStart(2, '0')}${(d.getSeconds()).toString().padStart(2, '0')}`;
-  }
+  // add or remove hours and minutes
+  const fullString = `${full.substring(0, 4)}-${full.substring(4, 6)}-${full.substring(6, 8)}T${full.substring(9, 11)}:${full.substring(11, 13)}:${full.substring(13, 15)}`;
+  const d = new Date(fullString);
+  d.setHours(d.getHours() + options.addHours);
+  d.setMinutes(d.getMinutes() + options.addMinutes);
+  full = `${d.getFullYear()}${(d.getMonth() + 1).toString().padStart(2, '0')}${(d.getDate()).toString().padStart(2, '0')}_${(d.getHours()).toString().padStart(2, '0')}${(d.getMinutes()).toString().padStart(2, '0')}${(d.getSeconds()).toString().padStart(2, '0')}`;
 
   return full;
 

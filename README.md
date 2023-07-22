@@ -76,6 +76,7 @@ npm start -- remove-context-menu
 
 ### v1.1.0
 
+* Add or subtract minutes into the filename (2023-07-22)
 * Add or subtract hours into the filename (2023-07-22)
 
 ### v1.0.0

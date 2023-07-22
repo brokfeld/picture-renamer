@@ -27,6 +27,11 @@ lang[`hour-question`] = {
   'de-DE': `Stunden hinzufügen bzw. abziehen (Standard ist 0). Weiter mit Enter.`
 };
 
+lang[`minutes-question`] = {
+  'default': `Add or subtract minutes (default is 0). Continue with Enter.`,
+  'de-DE': `Minuten hinzufügen bzw. abziehen (Standard ist 0). Weiter mit Enter.`
+};
+
 lang[`preview`] = {
   'default': `Preview`,
   'de-DE': `Vorschau`

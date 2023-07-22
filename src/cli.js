@@ -59,6 +59,19 @@ import removeContextMenu from './removeContextMenu.js';
         hourAddition = 0;
       }
 
+      // ask for minutes addition
+      let minutesAddition = (await prompts({
+        type: 'number',
+        name: 'value',
+        initial: 0,
+        message: i18n(`minutes-question`).yellow,
+      })).value;
+      if (!minutesAddition) {
+        minutesAddition = 0;
+      }
+
+      console.log(config.hr2);
+
       // items of directory
       const items = await fs.readdir(config.pictureDir, { withFileTypes: true });
 
@@ -82,7 +95,7 @@ import removeContextMenu from './removeContextMenu.js';
             }
 
             file.src = path.resolve(config.pictureDir, item.name);
-            file.date = await getCaptureDate(file.src, { addHours: hourAddition });
+            file.date = await getCaptureDate(file.src, { addHours: hourAddition, addMinutes: minutesAddition });
 
             if (sameDate[file.date] >= 0) {
               sameDate[file.date]++;
