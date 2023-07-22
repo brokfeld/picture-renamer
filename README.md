@@ -74,6 +74,10 @@ npm start -- remove-context-menu
 
 ## Changelog
 
+### v1.1.0
+
+* Add or subtract hours (2023-07-22)
+
 ### v1.0.0
 
 * Installer/Uninstaller for a context menu entry on Windows (2023-04-20)

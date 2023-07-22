@@ -22,6 +22,11 @@ lang[`suffix-error`] = {
   'de-DE': `Fehler: Es sind maximal 20 Zeichen erlaubt!`
 };
 
+lang[`hour-question`] = {
+  'default': `Add or subtract hours (default is 0). Continue with Enter.`,
+  'de-DE': `Stunden hinzufügen bzw. abziehen (Standard ist 0). Weiter mit Enter.`
+};
+
 lang[`preview`] = {
   'default': `Preview`,
   'de-DE': `Vorschau`
